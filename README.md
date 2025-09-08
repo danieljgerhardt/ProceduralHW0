@@ -1,4 +1,4 @@
-In this preparatory assignment, I added a cube object to the renderer. I also added shaders that support color changing, a worley and fbm noise combination for procedural texturing, and a non-uniform vertex displacement shader that shrinks the y component of the vertices on the back face of the cube. [Link to live demo]([https://nodejs.org/en/download/](https://danieljgerhardt.github.io/ProceduralHW0)) 
+In this preparatory assignment, I added a cube object to the renderer. I also added shaders that support color changing, a worley and fbm noise combination for procedural texturing, and a non-uniform vertex displacement shader that shrinks the y component of the vertices on the back face of the cube. [Link to live demo](https://danieljgerhardt.github.io/ProceduralHW0) 
 
 <p align="center">
   <img width="360" height="360" src=images/displace.png>
