@@ -1,3 +1,17 @@
+In this preparatory assignment, I added a cube object to the renderer. I also added shaders that support color changing, a worley and fbm noise combination for procedural texturing, and a non-uniform vertex displacement shader that shrinks the y component of the vertices on the back face of the cube.
+
+<p align="center">
+  <img width="360" height="360" src=images/displace.png>
+</p>
+
+<p align="center">
+  <img width="360" height="360" src=images/noise.png>
+</p>
+
+<p align="center">
+  <img width="360" height="360" src="https://user-images.githubusercontent.com/1758825/132532354-e3a45402-e484-499e-bfa7-2d73b9f2c946.png">
+</p>
+
 # HW 0: Intro to Javascript and WebGL
 
 <p align="center">
