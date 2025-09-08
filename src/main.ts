@@ -23,6 +23,7 @@ let square: Square;
 let cube: Cube;
 let prevTesselations: number = 5;
 let prevColor = { r: 255, g: 0, b: 0 };
+let timeElapsed = 0.0;
 
 function loadScene() {
   icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, controls.tesselations);
@@ -74,8 +75,19 @@ function main() {
     new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
   ]);
 
+  const noise3d = new ShaderProgram([
+    new Shader(gl.VERTEX_SHADER, require('./shaders/lambert-vert.glsl')),
+    new Shader(gl.FRAGMENT_SHADER, require('./shaders/noise3d-frag.glsl')),
+  ])
+
+  const timeChange = new ShaderProgram([
+    new Shader(gl.VERTEX_SHADER, require('./shaders/time-vert.glsl')),
+    new Shader(gl.FRAGMENT_SHADER, require('./shaders/lambert-frag.glsl')),
+  ])
+
   // This function will be called every frame
   function tick() {
+    timeElapsed += 0.01;
     camera.update();
     stats.begin();
     gl.viewport(0, 0, window.innerWidth, window.innerHeight);
@@ -86,18 +98,14 @@ function main() {
       icosphere = new Icosphere(vec3.fromValues(0, 0, 0), 1, prevTesselations);
       icosphere.create();
     }
-    if(controls.color.r !== prevColor.r ||
-       controls.color.g !== prevColor.g ||
-       controls.color.b !== prevColor.b) 
-    {
-      lambert.setGeometryColor(
-          vec4.fromValues(
-          controls.color.r / 255,
-          controls.color.g / 255,
-          controls.color.b / 255, 1.0));
-      prevColor = { ...controls.color };
-    }
-    renderer.render(camera, lambert, [
+
+    let currentShader = timeChange;
+
+    currentShader.setGeometryColor(
+      vec4.fromValues(controls.color.r / 255.0, controls.color.g / 255.0, controls.color.b / 255.0, 1.0));
+    currentShader.setTime(timeElapsed);
+
+    renderer.render(camera, currentShader, [
       // icosphere,
       // square,
       cube
