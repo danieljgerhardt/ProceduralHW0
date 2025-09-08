@@ -12,7 +12,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: actions/setup-node@v3-beta
+      - uses: actions/setup-node@v3
         with:
           node-version: "15.x"
 
