@@ -8,10 +8,6 @@ In this preparatory assignment, I added a cube object to the renderer. I also ad
   <img width="360" height="360" src=images/noise.png>
 </p>
 
-<p align="center">
-  <img width="360" height="360" src="https://user-images.githubusercontent.com/1758825/132532354-e3a45402-e484-499e-bfa7-2d73b9f2c946.png">
-</p>
-
 # HW 0: Intro to Javascript and WebGL
 
 <p align="center">
